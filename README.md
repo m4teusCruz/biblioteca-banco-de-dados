@@ -1,4 +1,4 @@
-# 📚 Sistema de Gerenciamento de Biblioteca — Banco de Dados Relacional
+#  Sistema de Gerenciamento de Biblioteca — Banco de Dados Relacional
 
 Projeto completo de modelagem e implementação de um banco de dados relacional em **MySQL** para o controle de acervo literário e acadêmico, rastreamento individual de cópias físicas, gestão de leitores, reservas e histórico de empréstimos.
 
@@ -6,22 +6,22 @@ Desenvolvido como projeto final da disciplina de **Modelagem de Dados** no **UDF
 
 ---
 
-## 🎯 Objetivo do Projeto
+## Objetivo do Projeto
 
 Centralizar e estruturar os dados de uma biblioteca evitando redundâncias e garantindo a integridade referencial. A arquitetura separa o conceito de **obra (`livro`)** de suas **cópias físicas (`exemplar`)**, permitindo rastrear o estado de conservação e a disponibilidade real de cada item por meio do histórico de movimentações.
 
----
+-------------------------------------------------------------------------------------------------
 
-## 🛠️ Tecnologias e Ferramentas
+## Tecnologias e Ferramentas
 
 * **SGBD:** MySQL 8.0
 * **Modelagem Conceitual:** BrModelo 2.0
 * **Modelagem Lógica e Administração:** MySQL Workbench
 * **Linguagem:** SQL (DDL, DML, DQL) e recursos procedurais (Triggers e Stored Procedures)
 
----
+--------------------------------------------------------------------------------------------------
 
-## 🏗️ Arquitetura e Modelagem
+##  Arquitetura e Modelagem
 
 ### 1. Regras de Negócio Principais
 * **R1 & R2:** Um livro pode ter múltiplos exemplares físicos (1:N) e ser escrito por um ou mais autores (N:N, resolvido via tabela associativa `livro_autor`).
@@ -31,16 +31,9 @@ Centralizar e estruturar os dados de uma biblioteca evitando redundâncias e gar
 
 ### 2. Modelo Conceitual (MER) e Modelo Lógico (DER)
 O banco de dados é composto por **8 tabelas relacionais**: `categoria`, `autor`, `leitor`, `livro`, `livro_autor`, `exemplar`, `emprestimo` e `reserva`.
-
-> 💡 *Dica: Adicione aqui os prints das Figuras 1 e 2 do seu relatório após subir as imagens na pasta `/docs` ou `/assets` do repositório:*
-> ```markdown
-> ![Modelo Conceitual - MER](assets/mer_biblioteca.png)
-> ![Diagrama Entidade-Relacionamento - DER](assets/der_biblioteca.png)
-> ```
-
 ---
 
-## 💡 Destaques Técnicos Implementados
+##  Destaques Técnicos Implementados
 
 * **Bloqueio Automático de Empréstimo Duplicado (`TRIGGER`):**
   Criação da trigger `impedir_emprestimo_duplicado` (`BEFORE INSERT ON emprestimo`), que verifica se o exemplar já possui registro com `data_devolucao_efetiva IS NULL` e dispara um erro controlado via `SIGNAL SQLSTATE '45000'`.
@@ -53,7 +46,7 @@ O banco de dados é composto por **8 tabelas relacionais**: `categoria`, `autor`
 
 ---
 
-## 📂 Estrutura Sugerida para o Repositório
+##  Estrutura Sugerida para o Repositório
 
 ```text
 ├── assets/                  # Diagramas (MER e DER) e prints de execução
@@ -69,7 +62,7 @@ O banco de dados é composto por **8 tabelas relacionais**: `categoria`, `autor`
 
 ---
 
-## 🚀 Como Executar
+## Como Executar
 
 1. Clone este repositório:
    ```bash
@@ -83,7 +76,7 @@ O banco de dados é composto por **8 tabelas relacionais**: `categoria`, `autor`
 
 ---
 
-## 👥 Autores
+## Autores
 
 * **Mateus Gonçalves da Cruz** — [GitHub](https://github.com/m4teusCruz)
 * **Guilherme Nasareth de Sousa**
